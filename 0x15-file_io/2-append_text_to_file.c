@@ -20,11 +20,11 @@ int append_text_to_file(const char *filename, char *text_content)
 			length++;
 	}
 	opening = open(filename, O_WRONLY | O_APPEND);
-	writing = write(o, text_content, length);
+	writing = write(opening, text_content, length);
 
-	if (o == -1 || w == -1)
+	if (opening == -1 || writing == -1)
 		return (-1);
-	close(o);
+	close(opening);
 
 	return (1);
 }
